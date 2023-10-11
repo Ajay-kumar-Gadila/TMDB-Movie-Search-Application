@@ -50,4 +50,45 @@ https: module.exports = {
     const cast_info = await allDetails[1].json();
     return { ...cast_details, ...cast_info };
   },
+  fetchTrendingMovies: async  function (dayId){
+    const apiKey = `31033d6c2cb5a93143ae48b27101f91d`;
+    const apiUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`;
+    const options = {
+      method: "GET",
+      headers: { accept: "application/json" },
+    };
+
+    const fetchResponse = await fetch(apiUrl, options);
+
+    if (fetchResponse.ok) {
+      const responseJson = await fetchResponse.json();
+      const trendingMovies = responseJson.results;
+      return trendingMovies;
+    } else {
+      throw new Error('Failed to fetch data');
+    }
+  },
+  
+  fetchTrendingWeekMovies: async  function (dayId){
+    const apiKey = `31033d6c2cb5a93143ae48b27101f91d`;
+    const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
+    const options = {
+      method: "GET",
+      headers: { accept: "application/json" },
+    };
+
+    const fetchResponse = await fetch(apiUrl, options);
+
+    if (fetchResponse.ok) {
+      const responseJson = await fetchResponse.json();
+      const trendingMovies = responseJson.results;
+      return trendingMovies;
+    } else {
+      throw new Error('Failed to fetch data');
+    }
+  }
+ 
 };
+
+
+

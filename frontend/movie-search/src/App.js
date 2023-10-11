@@ -1,23 +1,28 @@
 import { useState } from "react";
 import "./App.css";
 import searchMovie from "./Services/fetchService";
-import Nav from "./components/Nav";
-import SearchPanel from "./components/SearchPanel";
+
 import Pagination from "./components/Pagination";
 import Movies from "./components/Movies";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import Nav from "./components/Nav";
+import TrendingToday from './components/TrendingToday';
+import TrendingWeek from './components/TrendingWeek';
+import ToggleButton from './components/ToggleButton';
 
 function App() {
   const [totalResult, setTotalResult] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [movies, setMovies] = useState([]);
   const [pagination, setPagination] = useState([]);
-  const [query, setQuery] = useState(null);
-  async function submitSearch(event) {
-    try {
-      event.preventDefault();
+  const { query } = useParams();
 
-      const searchString = event.target.elements.search.value;
-      setQuery(searchString);
+  useEffect(() => {
+    submitSearch(query);
+  }, []);
+  async function submitSearch(searchString) {
+    try {
       const response = await searchMovie(searchString);
       handleResponse(response);
     } catch (error) {
@@ -48,30 +53,47 @@ function App() {
   function generatePagination(N) {
     return Array.from({ length: N }, (_, index) => index + 1);
   }
-
   
+
   return (
     <div>
       <Nav></Nav>
-      <SearchPanel
-        totalResult={totalResult}
-        submitSearch={submitSearch}
-      ></SearchPanel>
-
       <div className="container">
         <div className="row">
-          {movies.length > 0 ? (
-            <Movies movies={movies} />
-          ) : (
-            <span>No result</span>
-          )}
+          <div className="col-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                  Movies
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Link
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="col-9">
+            <div className="row">
+              {movies.length > 0 ? (
+                <Movies movies={movies} />
+              ) : (
+                <span>No result</span>
+              )}
+            </div>
+
+            <div className="row">
+              <Pagination
+                handlePagination={handlePagination}
+                currentPage={currentPage}
+                pagination={pagination}
+              ></Pagination>
+            </div>
+           
+          </div>
         </div>
       </div>
-      <Pagination
-        handlePagination={handlePagination}
-        currentPage={currentPage}
-        pagination={pagination}
-      ></Pagination>
     </div>
   );
 }

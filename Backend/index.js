@@ -6,6 +6,7 @@ const app = express();
 const PORT = process.env.PORT;
 const API_KEY = process.env.API_KEY;
 app.use(cors("http://localhost:3001/"));
+// const fetchService = require('./fetch-service');
 
 app.get("/find-movie", async (req, res) => {
   try {
@@ -50,6 +51,30 @@ app.get("/actor-details/:id",async (req,res) => {
   catch (errro) {
     res.statuscode = 422;
     res.send({ error: error.message, success: false});
+  }
+});
+
+
+// const port = 3000; // You can choose any available port
+ // Import the fetch service
+
+app.get('/day', async (req, res) => {
+  try {
+    const trendingMovies = await fetchService.fetchTrendingMovies();
+    res.json({ trendingMovies });
+  } catch (error) {
+    console.error('Error:', error.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get('/week', async (req, res) => {
+  try {
+    const trendingWeekMovies = await fetchService.fetchTrendingWeekMovies();
+    res.json({ trendingWeekMovies });
+  } catch (error) {
+    console.error('Error:', error.message);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
