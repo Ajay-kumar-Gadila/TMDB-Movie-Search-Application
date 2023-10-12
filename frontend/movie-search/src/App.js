@@ -67,7 +67,9 @@ function App() {
                 </div>
               </li>
               <li class="nav-item">
-              <div className="total-result"><h3>Movies : {totalResult}</h3>  </div>
+                <div className="total-result">
+                  <h3>Movies : {totalResult}</h3>{" "}
+                </div>
               </li>
             </ul>
           </div>

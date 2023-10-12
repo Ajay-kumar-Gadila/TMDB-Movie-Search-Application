@@ -16,11 +16,7 @@ export default function Home() {
     <>
       <Nav></Nav>
       <SearchPanel navToSearch={navigateToSearchPage}></SearchPanel>
-        <ToggleButton /> 
-     
-      
-      
+      <ToggleButton />
     </>
   );
 }
-

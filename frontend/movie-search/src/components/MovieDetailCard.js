@@ -3,7 +3,6 @@ import Nav from "./Nav";
 import { useParams, Link } from "react-router-dom"; 
 import { getMovieDetails } from "../Services/fetchService";
 import CastCard from "./CastCard";
-import CrewCard from "./CrewCard";
 
 export default function MovieDetailCard() {
   const { id } = useParams();
@@ -25,7 +24,7 @@ export default function MovieDetailCard() {
         <div className="Info">
           <h2>Movie Details</h2>
           <p>Title: {movieData.title}</p>
-          <p>Release Date: {movieData.releaseDate}</p>
+         
         </div>
         <div className="cast">
           <h3>Cast</h3>
