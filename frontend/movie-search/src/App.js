@@ -7,9 +7,9 @@ import Movies from "./components/Movies";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import Nav from "./components/Nav";
-import TrendingToday from './components/TrendingToday';
-import TrendingWeek from './components/TrendingWeek';
-import ToggleButton from './components/ToggleButton';
+import TrendingToday from "./components/TrendingToday";
+import TrendingWeek from "./components/TrendingWeek";
+import ToggleButton from "./components/ToggleButton";
 
 function App() {
   const [totalResult, setTotalResult] = useState(0);
@@ -53,7 +53,6 @@ function App() {
   function generatePagination(N) {
     return Array.from({ length: N }, (_, index) => index + 1);
   }
-  
 
   return (
     <div>
@@ -63,14 +62,12 @@ function App() {
           <div className="col-3">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
-                  Movies
-                </a>
+                <div class="card custom-card">
+                  <div class="movie-search">Movie Search</div>
+                </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Link
-                </a>
+              <div className="total-result"><h3>Movies : {totalResult}</h3>  </div>
               </li>
             </ul>
           </div>
@@ -90,7 +87,6 @@ function App() {
                 pagination={pagination}
               ></Pagination>
             </div>
-           
           </div>
         </div>
       </div>

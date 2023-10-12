@@ -22,12 +22,12 @@ function TrendingWeek() {
     <div>
       <div className="card-container">
         {trendingWeekMovies.map((movie) => (
-          <div className="card" key={movie.id}>
+          <div className="card custom-trending" key={movie.id}>
             <img
               src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
               alt={movie.title}
             />
-            <h2>{movie.title}</h2>
+            <h2 className="movie-title">{movie.title}</h2>
             <p>Release Date: {movie.release_date}</p>
           </div>
         ))}

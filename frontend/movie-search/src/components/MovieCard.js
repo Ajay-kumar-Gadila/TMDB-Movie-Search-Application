@@ -6,29 +6,32 @@ export default function MovieCard({ movie }) {
   return (
     <>
       <NavLink to={`/movie/${movie.id}`}>
-       
-        <div className="col-md-4 mb-3">
-        <div className="movieCard">
-          <img
-            src={`${publicImageURL}${movie.backdrop_path}`}
-            className="card-img-top"
-            alt="..."
-          />
-          <div className="movie-info">
-            <p className="title">{movie.original_title}</p>
-            <p className="rating">
-              Rating <span>{movie.vote_average}</span>
-            </p>
-            <p className="release">
-              {new Date(movie.release_date).toLocaleDateString("us-EN", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </p>
+        <div class="card float-right">
+          <div class="row">
+            <div class="col-sm-5">
+              <img
+                src={`${publicImageURL}${movie.backdrop_path}`}
+                class="card-img-top"
+                alt="..."
+              />
+            </div>
+            <div class="col-sm-7">
+              <div class="row">
+                <p class="title">{movie.original_title}</p>
+                <p class="rating">
+                  Rating <span>{movie.overview}</span>
+                </p>
+                <p class="release">
+                  {new Date(movie.release_date).toLocaleDateString("us-EN", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
       </NavLink>
     </>
   );
