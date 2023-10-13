@@ -20,7 +20,7 @@ function TrendingWeek() {
   }, []);
   return (
     <div>
-      <div className="card-container">
+      <div className="card-container custom-trending-cards">
         {trendingWeekMovies.map((movie) => (
           <div className="card custom-trending" key={movie.id}>
             <img

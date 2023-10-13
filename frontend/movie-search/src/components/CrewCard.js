@@ -1,6 +1,6 @@
 import React from "react";
 
-function CrewCard({ crewMember }) {
+function CrewCard({ crewMember, job }) {
   return (
     <div className="card">
       <img
@@ -9,7 +9,7 @@ function CrewCard({ crewMember }) {
         className="actor-image"
       />
       <p className="actor-name">{crewMember.name}</p>
-      <p className="actor-job">{crewMember.job}</p>
+      <p className="actor-job">{job}</p>
     </div>
   );
 }

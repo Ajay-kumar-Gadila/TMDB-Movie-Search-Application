@@ -7,9 +7,7 @@ import Movies from "./components/Movies";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import Nav from "./components/Nav";
-import TrendingToday from "./components/TrendingToday";
-import TrendingWeek from "./components/TrendingWeek";
-import ToggleButton from "./components/ToggleButton";
+
 
 function App() {
   const [totalResult, setTotalResult] = useState(0);

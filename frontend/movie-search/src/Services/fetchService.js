@@ -38,6 +38,27 @@ export async function getMovieDetails(movieId) {
   }
 }
 
+export async function getRecommendations(recomId) {
+  try {
+    if (!recomId) {
+      throw new Error("Movie id is invalid ");
+    }
+    const url = `http://localhost:3000/Recommedations/${recomId}`;
+    const response = await fetch(url);
+    const res = await response.json();
+    if(res.succes === false) {
+      throw new Error("Nothing found with query");
+    }
+    console.log(res);
+    if (!res) {
+      throw new Error("Nothing found with that query");
+    }
+    return res;
+  } catch (error) {
+    throw Error(error.message);
+  }
+}
+
 export async function getActorDetails(actorId) {
   try {
     if (!actorId) {
@@ -55,6 +76,27 @@ export async function getActorDetails(actorId) {
     }
     return res;
   } catch (error) {
+    throw Error(error.message);
+  }
+}
+
+export async function getMovieReview(reviewId) {
+  try {
+    if (!reviewId) {
+      throw new Error("Review id is invalid");
+    
+    }
+    const url = `http://localhost:3000/actor-details/${reviewId}`;
+    const response = await fetch(url);
+    const res = await response.json();
+    if (res.success ===  false) {
+      throw new Error("Nothing found with that query ");
+
+    } 
+    return res;
+
+  }
+  catch (error) {
     throw Error(error.message);
   }
 }
@@ -97,3 +139,5 @@ export async function getTrendingWeekMovies() {
     throw new Error(error.message);
   }
 }
+
+

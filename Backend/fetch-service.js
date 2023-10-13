@@ -49,8 +49,24 @@ https: module.exports = {
     const cast_details = await allDetails[0].json();
     const cast_info = await allDetails[1].json();
     return { ...cast_details, ...cast_info };
+  }, 
+  fetchRecommendations: async function (recomId) {
+    const recommendationUrl = `https://api.themoviedb.org/3/movie/19995/recommendations/${recomId}?api_key=${process.env.API_KEY}`;
+    const recominfoUrl = `https://api.themoviedb.org/3/movie/${recomId}?language=en-US&api_key=${process.env.API_KEY}`;
+    const options = {
+      method: "GET",
+      headers: { accept: "application/json" },
+    };
+    const allDetails = await Promise.all([
+      await fetch(recommendationUrl, options),
+      await fetch(recominfoUrl, options),
+    ]);
+
+    const recom_details = await allDetails[0].json();
+    const recom_info = await allDetails[1].json();
+    return { ...recom_details, ...recom_info };
   },
-  fetchTrendingMovies: async  function (dayId){
+    fetchTrendingMovies: async  function (dayId){
     const apiKey = `31033d6c2cb5a93143ae48b27101f91d`;
     const apiUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`;
     const options = {
@@ -86,6 +102,24 @@ https: module.exports = {
     } else {
       throw new Error('Failed to fetch data');
     }
+  },
+
+ 
+  fetchReview: async function (reviewId) {
+    const personUrl = `https://api.themoviedb.org/3/movie/reviews/${reviewId}?api_key=${process.env.API_KEY}`;
+    const personInfoUrl = `https://api.themoviedb.org/3/movie/${reviewId}?language=en-US&api_key=${process.env.API_KEY}`;
+    const options = {
+      method: "GET",
+      headers: { accept: "application/json" },
+    };
+    const allDetails = await Promise.all([
+      await fetch(personUrl, options),
+      await fetch(personInfoUrl, options),
+    ]);
+
+    const review_details = await allDetails[0].json();
+    const reviews_info = await allDetails[1].json();
+    return { ...review_details, ...reviews_info };
   }
  
 };

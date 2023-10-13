@@ -236,6 +236,9 @@
 .button-text {
   display: flex;
 }
+.button-text button {
+  align-text:center;
+}
 
 .custom-movie-search {
   max-width: 580px;
@@ -291,20 +294,59 @@
 }
 
 .search-text {
-  /* border:0; */
+  
   border-radius: 40px;
   padding: 6px;
   margin-top: 60px;
 }
 .button-search {
-  /* border:0; */
-  /* border: green 2px ; */
+ 
   border-radius: 20px;
   position: absolute;
   left: 1284px;
-  /* padding-top:4px; */
+ 
 
   top: 205px;
   background: #75b79e;
   color: white;
+}
+
+
+.main-movie-details-card {
+  display:flex;
+  gap:50px;
+  background-color: #606162;
+  color:white;
+  padding:40px;
+  padding-left:60px;
+  padding-right:60px;
+}
+
+.custom-copyright {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.custom-footer {
+  padding-left: 0px;
+}
+.custom-trending-cards {
+  max-width:1480px;
+  padding-left:350px
+}
+.button-text {
+  text-align: center;
+}
+
+.toggle-btn {
+  text-align: center;
+  width: 100%;
+}
+
+.today-text {
+  padding-right: 20px;
+}
+.custom-footer {
+  position: absolute;
+}
+.image-text-related {
+  font-size: 14px;
 }

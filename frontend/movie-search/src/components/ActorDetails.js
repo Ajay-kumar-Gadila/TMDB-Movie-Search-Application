@@ -46,6 +46,12 @@ const ActorDetails = () => {
           <span class="property-label">Popularity:</span> {actorData.popularity}
         </p>
         <p>
+          <span class="property-label">Department : {actorData.known_for_department}</span> 
+        </p>
+        <p>
+          <span class="property-label">Character: {actorData.character}</span> 
+        </p>
+        <p>
           <span class="property-label">FullName:</span>{" "}
           {actorData.also_known_as}
         </p>

@@ -21,7 +21,7 @@ function TrendingToday() {
 
       return (
         <div >
-        <div className="card-container">
+        <div className="card-container custom-trending-cards">
           {trendingMovies.map((movie) => (
             <div className="card custom-trending" key={movie.id}>
              <img
