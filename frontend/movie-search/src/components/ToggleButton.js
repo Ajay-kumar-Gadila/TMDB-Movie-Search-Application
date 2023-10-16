@@ -20,7 +20,6 @@ function ToggleButton() {
     <div className="form-box">
       <div className="button-box">
         <div id="btn" className={position}></div>
-
         <div className="button-text">
           <button type="button" className="toggle-btn custom-btn1" id="today-text"onClick={leftClick}>Today
           </button>

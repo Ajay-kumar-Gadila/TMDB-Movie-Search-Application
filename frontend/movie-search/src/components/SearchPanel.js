@@ -8,14 +8,13 @@ export default function SearchPanel(params) {
               name="search"
               className="form-control form-control-lg custom-input-form"
               type="text"
-              placeholder="Search a movie of your choice..."
+              placeholder="Search "
               aria-label=".form-control-lg example"
               required
             />
             <button type="submit" className="btn btn-primary mb-3 custom-search-btn">
               Search 
-            </button>
-            
+            </button> 
            </form>
         </div>
       </div>

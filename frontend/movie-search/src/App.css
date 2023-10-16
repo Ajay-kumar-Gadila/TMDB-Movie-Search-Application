@@ -118,6 +118,7 @@
   margin-top: 10px;
   font-size: 14px;
 }
+
 .Info {
   text-align: center;
 }
@@ -165,7 +166,7 @@
 
 .custom-button {
   border: 0;
-  background-color: #c2ca5a;
+  background-color: rgb(6, 237, 156);
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   position: absolute;
@@ -307,7 +308,7 @@
  
 
   top: 205px; */
-  background: #75b79e;
+  background: #1de095;
   color: white;
 }
 
@@ -415,6 +416,8 @@ h2 {
 .custom-search-btn {
   padding: 12px; 
   border-radius: 20px;
+  background-color: #39edb7;
+  border: #4caf50 ;
 }
 
 .custom-form {
@@ -429,4 +432,23 @@ h2 {
   display: flex;
   /* justify-content: space-between; */
   gap: 30px;
+}
+
+.recommendation-cards {    display: flex;
+  /* justify-content: space-evenly; */
+  gap: 30px;
+}
+
+.image-cards-container img {
+  max-width: 200px;
+}
+.image-cards-container {
+  display: 'flex'; 
+  gap: '40px';
+   justify-content: 'center';
+}
+
+.cast-cardss {
+  display: flex;
+  gap:30px;
 }
