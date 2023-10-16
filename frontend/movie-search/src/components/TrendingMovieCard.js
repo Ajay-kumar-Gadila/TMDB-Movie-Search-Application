@@ -6,7 +6,7 @@ const TrendingMovieCard = ({ movie }) => {
   const navigate = useNavigate();
 
   const handleMovieClick = (movieId) => {
-    navigate(`/movie/${movieId}`);
+    navigate(`/trending-today/${movieId}`);
   };
 
   return (

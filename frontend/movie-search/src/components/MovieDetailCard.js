@@ -5,8 +5,6 @@ import { getMovieDetails } from "../Services/fetchService";
 import CastCard from "./CastCard";
 import CrewCard from "./CrewCard";
 
-
-
 export default function MovieDetailCard() {
   const { id } = useParams();
   const [movieData, setMovieData] = useState({});
@@ -27,7 +25,6 @@ export default function MovieDetailCard() {
       return "Crew information not available";
     }
   }
-  
 
   return (
     <>
@@ -55,39 +52,40 @@ export default function MovieDetailCard() {
               {movieData.genres &&
                 movieData.genres.map((genre) => genre.name).join(", ")}
             </p>
-            <p>
-            {`${Math.floor(Math.abs(movieData.vote_average) * 10)}%`}
-            <i class="fa-solid fa-list"></i>
-            <i class="fa-solid fa-heart" ></i>
-            <i class="fa-regular fa-bookmark"></i>
-            <i class="fa-solid fa-star"></i>
-
+            <p className="user-score">
+              <p> {`${Math.floor(Math.abs(movieData.vote_average) * 10)}%`}</p>
+              <p>
+                
+                <i class="fa-solid fa-list"></i>
+              </p>
+              <p>
+                <i class="fa-solid fa-heart"></i>
+              </p>
+              <p>
+                <i class="fa-regular fa-bookmark"></i>
+              </p>
+              <p>
+                {" "}
+                <i class="fa-solid fa-star"></i>
+              </p>
             </p>
-
-            <p class="writer">
-              <b>Vote Count:</b> {movieData.vote_count}
-            </p>
-           
             <p class="plot">
-              <b>Plot:</b> {movieData.overview}
+              <b>overview:</b> {movieData.overview}
             </p>
             <p class="language">
               <b>Revenue </b> {movieData.revenue}
-              <b> Vote Average </b> {`${Math.floor(Math.abs(movieData.vote_average) * 10)}%`}
             </p>
-            <p class="language">
-           
+            
+            <p className="user-score">
+              <b>Director: </b> {getJobName("Director")}
+              <b> Characters: </b> {getJobName("Characters")}
+              <b> Writer: </b> {getJobName("Writer")}
+              <b> Screenplay:</b> {getJobName("Screenplay")}
             </p>
-            <p>
-          <b>Director: </b> {getJobName("Director")}
-          <b> Characters: </b> {getJobName("Characters")}
-          <b> Writer: </b> {getJobName("Writer")}
-          <b> Screenplay:</b> {getJobName("Screenplay")}
-        </p>                                                             
           </div>
         </div>
       </div>
-    
+
       <div className="cast">
         <h3>Top Billed Cast </h3>
         <div className="cast-cards">
@@ -99,8 +97,6 @@ export default function MovieDetailCard() {
             ))}
         </div>
       </div>
-      
-    
 
       <div class="container-fluid my-5 custom-footer">
         <footer class="bg-dark text-center text-white pb-3">

@@ -302,11 +302,11 @@
 .button-search {
  
   border-radius: 20px;
-  position: absolute;
+  /* position: absolute;
   left: 1284px;
  
 
-  top: 205px;
+  top: 205px; */
   background: #75b79e;
   color: white;
 }
@@ -329,7 +329,7 @@
   padding-left: 0px;
 }
 .custom-trending-cards {
-  max-width:1480px;
+  /* max-width:1480px; */
   /* padding-left:350px */
 }
 .button-text {
@@ -363,9 +363,9 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 20px;
-  max-width: 400px;
+  /* max-width: 400px; */
   margin: 10px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .actor-image {
@@ -411,3 +411,22 @@ h2 {
   padding-left:10px;
 }
 
+
+.custom-search-btn {
+  padding: 12px; 
+  border-radius: 20px;
+}
+
+.custom-form {
+  display:flex;
+  margin-top:80px;
+}
+.custom-input-form {
+  border-radius: 20px !important;
+}
+
+.user-score {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 30px;
+}

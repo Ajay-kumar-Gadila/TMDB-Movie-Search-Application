@@ -15,6 +15,7 @@ ReactDOM.render(
       <Route path="/search/:query" element={<App />} />
       <Route path="/movie/:id" element={<MovieDetailCard />} />
       <Route path="/actor/:actorId" element={<ActorDetails />} /> 
+      <Route path="/trending-today/:id" element={<MovieDetailCard />} />
       <Route path="/trending-week/:id" element={<MovieDetailCard />} />
     </Routes>
   </BrowserRouter>,
