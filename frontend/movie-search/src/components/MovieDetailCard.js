@@ -4,8 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { getMovieDetails } from "../Services/fetchService";
 import CastCard from "./CastCard";
 import CrewCard from "./CrewCard";
-// import Recommendation from "./Recommendation";
-import Recommendation from "./Recommendation";
+
 
 
 export default function MovieDetailCard() {
@@ -101,22 +100,7 @@ export default function MovieDetailCard() {
         </div>
       </div>
       
-      <div className="recommendations">
-      <h3>Recommendations</h3>
-      <div className="recommendation-cards">
-        {recommendations.map((recommendation) => (
-          <div className="recommendation-card" key={recommendation.id}>
-           
-           <img
-              src={`https://image.tmdb.org/t/p/w200${recommendation.poster_path}`}
-              alt={recommendation.title}
-            />
-            <h4>{recommendation.title}</h4>
-            
-          </div>
-        ))}
-      </div>
-    </div>
+    
 
       <div class="container-fluid my-5 custom-footer">
         <footer class="bg-dark text-center text-white pb-3">

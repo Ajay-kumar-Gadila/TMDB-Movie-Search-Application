@@ -139,5 +139,3 @@ export async function getTrendingWeekMovies() {
     throw new Error(error.message);
   }
 }
-
-

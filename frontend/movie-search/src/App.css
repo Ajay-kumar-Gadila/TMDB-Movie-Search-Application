@@ -330,7 +330,7 @@
 }
 .custom-trending-cards {
   max-width:1480px;
-  padding-left:350px
+  /* padding-left:350px */
 }
 .button-text {
   text-align: center;
@@ -350,3 +350,64 @@
 .image-text-related {
   font-size: 14px;
 }
+
+.actor-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actor-card {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 10px;
+  text-align: center;
+}
+
+.actor-image {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.property-label {
+  font-weight: bold;
+}
+
+.credits {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.credit-card {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px;
+  max-width: 200px;
+  text-align: center;
+  padding: 10px;
+}
+
+.credit-image {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.custom-btn1 {
+  padding-right:10px;
+}
+
+.custom-btn1 {
+  padding-left:10px;
+}
+

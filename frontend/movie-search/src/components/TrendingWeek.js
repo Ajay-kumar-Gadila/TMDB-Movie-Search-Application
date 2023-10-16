@@ -1,7 +1,7 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import { getTrendingWeekMovies } from "../Services/fetchService";
-const publicImageURL = "https://www.themoviedb.org/t/p/w440_and_h660_face/";
+import TrendingWeekMovieCard from './TrendingWeekMovieCard';
+
 
 function TrendingWeek() {
   const [trendingWeekMovies, setTrendingWeekMovies] = useState([]);
@@ -19,20 +19,12 @@ function TrendingWeek() {
     fetchTrendingWeekMovies();
   }, []);
   return (
-    <div>
-      <div className="card-container custom-trending-cards">
-        {trendingWeekMovies.map((movie) => (
-          <div className="card custom-trending" key={movie.id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-              alt={movie.title}
-            />
-            <h2 className="movie-title">{movie.title}</h2>
-            <p>Release Date: {movie.release_date}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <div className="card-container custom-trending-cards">
+  {trendingWeekMovies.map((movie) => (
+    <TrendingWeekMovieCard movie={movie} key={movie.id} />
+  ))}
+</div>
+
   );
 }
 
