@@ -4,7 +4,7 @@ import TrendingWeek from "./TrendingWeek";
 
 function ToggleButton() {
   const [position, setPosition] = useState("button-left");
-  const [cardType, setCardType] = useState(null);
+  const [cardType, setCardType] = useState('today'); 
 
   const leftClick = () => {
     setPosition("button-left");
@@ -21,7 +21,8 @@ function ToggleButton() {
       <div className="button-box">
         <div id="btn" className={position}></div>
         <div className="button-text">
-          <button type="button" className="toggle-btn custom-btn1" id="today-text"onClick={leftClick}>Today
+          <button type="button" className="toggle-btn custom-btn1" id="today-text"onClick={leftClick}>
+            Today
           </button>
           <button type="button" className="toggle-btn custom-btn2" onClick={rightClick}>
             Week

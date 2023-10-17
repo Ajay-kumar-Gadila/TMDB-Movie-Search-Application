@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
+
 
 const API_KEY = '31033d6c2cb5a93143ae48b27101f91d';
 
@@ -11,7 +12,7 @@ const ActorDetails = () => {
   const [credits, setCredits] = useState([]);
   const [externalIds, setExternalIds] = useState({});
   const [imageId, setImageId] = useState({});
-  const navigate = useNavigate(); // Get the navigate function
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchActorDetails = async () => {
@@ -46,6 +47,7 @@ const ActorDetails = () => {
         console.error('Error fetching external IDs:', error);
       }
     };
+
     const fetchImages = async () => {
       try {
         const ImagesId = await axios.get(
@@ -58,13 +60,12 @@ const ActorDetails = () => {
     }
 
     fetchImages();
-
     fetchActorDetails();
     fetchCombinedCredits();
     fetchExternalIds();
   }, [actorId]);
 
-  const top4Credits = credits.slice(0, 8);
+  const alsoActed = credits.slice(0, 8);
 
   const handleCreditClick = (movieId) => {
     navigate(`/movie/${movieId}`);
@@ -101,13 +102,13 @@ const ActorDetails = () => {
           <span className="property-label">FullName:</span> {actorData.also_known_as}
         </p>
         <p>
-          <span> <b>TMDB : {externalIds.imdb_id} </b>  </span>
+          <span className="tmdb-id"> <b>TMDB : {externalIds.imdb_id} </b>  </span>
         </p>
       </div>
 
       <h3>Also Acted in Movies</h3>
       <div className="credits">
-        {top4Credits.map((credit) => (
+        {alsoActed.map((credit) => (
           <div
             key={credit.id}
             className="credit-card"
@@ -125,6 +126,7 @@ const ActorDetails = () => {
           </div>
         ))}
       </div>
+      
     </div>
   );
 };

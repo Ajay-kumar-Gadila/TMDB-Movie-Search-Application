@@ -4,9 +4,9 @@ import { useParams, Link } from "react-router-dom";
 import { getMovieDetails } from "../Services/fetchService";
 import CastCard from "./CastCard";
 import CrewCard from "./CrewCard";
-import axios from 'axios';
+import axios from "axios";
 
-const API_KEY = '31033d6c2cb5a93143ae48b27101f91d'; // Replace with your API key
+const API_KEY = "31033d6c2cb5a93143ae48b27101f91d";
 
 export default function MovieDetailCard() {
   const { id } = useParams();
@@ -36,7 +36,7 @@ export default function MovieDetailCard() {
       );
       setRecommendations(recommendationsResponse.data.results);
     } catch (error) {
-      console.error('Error fetching recommendations:', error);
+      console.error("Error fetching recommendations:", error);
     }
   }
 
@@ -47,7 +47,7 @@ export default function MovieDetailCard() {
       );
       setVideos(videosResponse.data.results);
     } catch (error) {
-      console.error('Error fetching videos:', error);
+      console.error("Error fetching videos:", error);
     }
   }
 
@@ -56,21 +56,20 @@ export default function MovieDetailCard() {
       const imagesResponse = await axios.get(
         `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${API_KEY}`
       );
-      setImages(imagesResponse.data.posters); // You can change this to "backdrops" if you want to fetch backdrops
+      setImages(imagesResponse.data.posters);
     } catch (error) {
-      console.error('Error fetching images:', error);
+      console.error("Error fetching images:", error);
     }
-
   }
 
-   async function fetchReviews(movieId) {
+  async function fetchReviews(movieId) {
     try {
       const reviewsResponse = await axios.get(
         `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
       );
       setReviews(reviewsResponse.data.results);
     } catch (error) {
-      console.error('Error fetching reviews:', error);
+      console.error("Error fetching reviews:", error);
     }
   }
 
@@ -109,7 +108,10 @@ export default function MovieDetailCard() {
                 movieData.genres.map((genre) => genre.name).join(", ")}
             </p>
             <p className="user-score">
-              <p> Score: {`${Math.floor(Math.abs(movieData.vote_average) * 10)}%`}</p>
+              <p>
+                {" "}
+                Score: {`${Math.floor(Math.abs(movieData.vote_average) * 10)}%`}
+              </p>
               <p>
                 <i className="fa-solid fa-list"></i>
               </p>
@@ -149,12 +151,11 @@ export default function MovieDetailCard() {
             ))}
         </div>
       </div>
-      
-      {/* Display movie recommendations */}
+
       <div className="cast">
         <h3>Recommendations</h3>
-        <div className="cast-cards">
-          {recommendations.slice(0,6).map((movie) => (
+        <div className="cast-cardss">
+          {recommendations.slice(0, 6).map((movie) => (
             <Link to={`/movie/${movie.id}`} key={movie.id}>
               <div className="recommendation-card">
                 <img
@@ -170,11 +171,10 @@ export default function MovieDetailCard() {
         </div>
       </div>
 
-      {/* Display videos */}
       <div className="cast">
         <h3>Videos</h3>
         <div className="cast-cardss">
-          {videos.slice(0,2).map((video) => (
+          {videos.slice(0, 2).map((video) => (
             <div key={video.id}>
               <iframe
                 width="560"
@@ -192,37 +192,109 @@ export default function MovieDetailCard() {
           ))}
         </div>
       </div>
-      
-      {/* Display images */}
-      <div className="casts">
-  <h3>Images</h3>
-  <div className="image-cards-container" style={{ display: 'flex', gap: '60px', justifyContent: 'center' }}>
-    {images.slice(0, 4).map((image) => (
-      <img
-        key={image.file_path}
-        src={`https://image.tmdb.org/t/p/original${image.file_path}`}
-        alt="Movie"
-      />
-    ))}
-  </div>
-</div>
 
-
-
-      <div className="reviews">
-        <h3>Reviews</h3>
-        <div className="review-cards">
-          {reviews.slice(0,1).map((review) => (
-            <div key={review.id} className="review-card">
-              <p>
-                <span className="property-label">Author:</span> {review.author}
-              </p>
-              <p>
-                <span className="property-label">Content:</span> {review.content}
-              </p>
+      <div className="cast">
+        <h3>Images</h3>
+        <div
+          className="image-cards-container"
+          style={{ display: "flex", gap: "60px", justifyContent: "center" }}
+        >
+          {images.slice(0, 4).map((image) => (
+            <div class="geeks">
+              <img
+                key={image.file_path}
+                src={`https://image.tmdb.org/t/p/original${image.file_path}`}
+                alt="Movie"
+              />
             </div>
           ))}
         </div>
+      </div>
+      <div class="cast">
+        <div class="card text-center custom-review-card">
+          <div class="card-header">
+            <h3>Review</h3>
+          </div>
+          <div class="card-body">
+            {reviews.slice(0, 1).map((review) => (
+              <div key={review.id} className="review-card">
+                <p>
+                  <span className="property-label">Author:</span>{" "}
+                  {review.author}
+                </p>
+                <p>
+                  <span className="property-label">Content:</span>{" "}
+                  {review.content}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid my-5 custom-footer">
+        <footer class="bg-dark text-center text-white pb-3">
+          <div class="container p-4 pb-0">
+            <div class="container p-4 pb-0">
+              <section class="mb-4">
+                <a
+                  class="btn btn-outline-light btn-floating m-1"
+                  href="#!"
+                  role="button"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a
+                  class="btn btn-outline-light btn-floating m-1"
+                  href="#!"
+                  role="button"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+
+                <a
+                  class="btn btn-outline-light btn-floating m-1"
+                  href="#!"
+                  role="button"
+                >
+                  <i class="fab fa-google"></i>
+                </a>
+
+                <a
+                  class="btn btn-outline-light btn-floating m-1"
+                  href="#!"
+                  role="button"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+
+                <a
+                  class="btn btn-outline-light btn-floating m-1"
+                  href="#!"
+                  role="button"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a
+                  class="btn btn-outline-light btn-floating m-1"
+                  href="#!"
+                  role="button"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+              </section>
+            </div>
+          </div>
+
+          <div class="text-center p-3 custom-copyright">
+            © 2020 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">
+              MDBootstrap.com
+            </a>
+          </div>
+        </footer>
       </div>
     </>
   );

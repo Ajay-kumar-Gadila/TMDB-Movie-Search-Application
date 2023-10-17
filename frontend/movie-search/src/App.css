@@ -452,3 +452,67 @@ h2 {
   display: flex;
   gap:30px;
 }
+.recommendation-card p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.recommendation-card p {
+  width: 160px; 
+  
+}
+
+p span {
+  word-break: break-all;
+}
+
+.custom-review-card {
+  width:1200px !important;
+  /* margin-left:650px; */
+}
+
+.tmdb-id {
+  background-color: rgb(68, 66, 66);
+  color: rgb(175, 175, 12);
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.hover01 figure img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover01 figure:hover img {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+.geeks {
+  /* width: 300px; */
+  height: 300px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.geeks img {
+  width: 200%;
+  transition: 0.5s all ease-in-out;
+}
+
+.geeks:hover img {
+  transform: scale(1.5) !important;
+}
+.custom-navbar .container span link{
+  text-decoration: none;
+}
+
+.custom-review-card {
+  margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+}
+
